@@ -22,8 +22,9 @@ const Root = () => {
             <Outlet />
           </motion.div>
         </AnimatePresence>
-        <Footer />
+       
       </div>
+       <Footer />
     </div>
   );
 };

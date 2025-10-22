@@ -16,7 +16,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-6 w-11/12 mx-auto">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-11/12 mx-auto">
        
 <Swiper
   modules={[Autoplay]}
