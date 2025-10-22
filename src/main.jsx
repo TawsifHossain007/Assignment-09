@@ -21,10 +21,12 @@ const router = createBrowserRouter([
         index: true,
         path: '/',
         Component: Home,
+        loader:() => fetch('/service.json')
       },
       {
         path: "/services",
-        Component: Services
+        Component: Services,
+         loader:() => fetch('/service.json')
       },
       {
         path: "/my-profile",

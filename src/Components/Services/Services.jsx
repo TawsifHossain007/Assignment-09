@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
 
 const Services = () => {
-    return (
-        <div>
-            <h1>I am services</h1>
-        </div>
-    );
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="py-10"
+    >
+      <h1 className="text-3xl font-semibold text-gray-800">I am services</h1>
+    </motion.div>
+  );
 };
 
 export default Services;

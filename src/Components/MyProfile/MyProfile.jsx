@@ -1,10 +1,16 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
 const MyProfile = () => {
     return (
-        <div>
-            <h1>I am my profile</h1>
-        </div>
+        <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="py-10"
+    >
+      <h1 className="text-3xl font-semibold text-gray-800">I am Profile</h1>
+    </motion.div>
     );
 };
 
