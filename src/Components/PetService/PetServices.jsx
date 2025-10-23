@@ -9,7 +9,8 @@ const PetServices = ({ data }) => {
       <h1 className="text-[48px] font-bold text-center">
         Love, Care & Comfort for Pets
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
+      <p className="text-[#5E6472] pt-5 text-center hidden md:block">Discover a range of premium services designed to keep your furry friends happy, healthy, and pampered. From cozy winter coats and professional <br /> grooming to fun playtime, expert training, and wellness treatments, every service is crafted with love and attention to your pet’s unique needs. <br /> Because every pet deserves comfort, care, and a little extra TLC.</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-15">
         {data.slice(0, 3).map((service) => (
           <PerCard service={service} key={service.serviceId}></PerCard>
         ))}

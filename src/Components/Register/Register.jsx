@@ -11,7 +11,7 @@ const Register = () => {
           <input
             name="name"
             type="text"
-            className="input"
+            className="input text-[#F2994A]"
             placeholder="Name"
           />
           {/* PhotoURL */}
@@ -19,7 +19,7 @@ const Register = () => {
           <input
             name="PhotoURL"
             type="text"
-            className="input"
+            className="input text-[#F2994A]"
             placeholder="Photo URL"
           />
           {/* email */}
@@ -27,7 +27,7 @@ const Register = () => {
           <input
             name="email"
             type="email"
-            className="input"
+            className="input text-[#F2994A]"
             placeholder="Email"
           />
           {/* password */}
@@ -35,12 +35,12 @@ const Register = () => {
           <input
             name="password"
             type="password"
-            className="input"
+            className="input text-[#F2994A]"
             placeholder="Password"
           />
           <div>
           </div>
-          <button type="submit" className="btn btn-neutral mt-4">
+          <button type="submit" className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4 ">
             Register
           </button>
           <p className="text-[15px] text-center mt-2">

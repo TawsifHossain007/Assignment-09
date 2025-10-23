@@ -11,6 +11,7 @@ import MyProfile from './Components/MyProfile/MyProfile.jsx';
 import AuthRoot from './Layout/AuthRoot.jsx';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
+import ServiceDetails from './Components/ServiceDetails/ServiceDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         Component: Register
       }
     ]
+  },
+  {
+    path: "/service-details/:id",
+    Component: ServiceDetails,
+    loader:() => fetch('/service.json')
   }
 ]);
 

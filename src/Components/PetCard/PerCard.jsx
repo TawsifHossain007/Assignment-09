@@ -1,5 +1,6 @@
 import { CircleDollarSign, Star } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router';
 
 const PerCard = ({service}) => {
     return (
@@ -24,7 +25,8 @@ const PerCard = ({service}) => {
     </div>
 
     <div className='flex items-center justify-center pt-10 '>
-        <button className='btn bg-[#4cb6ba] group-hover:bg-white group-hover:text-black text-white w-fit'>View Details</button>
+        <Link  to={`/service-details/${service.serviceId}`}><button className='btn bg-[#4cb6ba] group-hover:bg-white group-hover:text-black text-white w-fit'>View Details</button></Link>
+        
     </div>
 </div>
 
