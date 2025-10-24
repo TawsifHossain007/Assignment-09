@@ -28,9 +28,6 @@ const Navbar = () => {
       <li>
         <NavLink to={"/my-profile"}>My Profile</NavLink>
       </li>
-      <li>
-        <NavLink to={"/community"}>Community</NavLink>
-      </li>
     </>
   );
 

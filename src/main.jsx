@@ -15,7 +15,6 @@ import ServiceDetails from "./Components/ServiceDetails/ServiceDetails.jsx";
 import AuthProvider from "./Components/AuthProvider/AuthProvider.jsx";
 import PrivateRoute from "./Components/AuthProvider/PrivateRoute.jsx";
 import Loading from "./Components/Loading/Loading.jsx";
-import Community from "./Components/Community/Community.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +38,6 @@ const router = createBrowserRouter([
         path: "/my-profile",
         Component: MyProfile,
       },
-      {
-        path: "/community",
-        Component: Community
-      }
     ],
   },
   {
