@@ -75,23 +75,39 @@ const ServiceCard = ({ service }) => {
         {/* form */}
         <div className="flex flex-col gap-6 items-center justify-center md:border-l border-l-0 border-gray-300 pl-10">
           <h1 className="font-bold text-2xl">Book Now!</h1>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-            <label className="label">Name</label>
-            <input type="text" className="input" placeholder="Name" />
+          <form
+  className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
+  onSubmit={(e) => {
+    e.preventDefault(); // prevent actual form submission
+    const form = e.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
 
-            <label className="label">Email</label>
-            <input type="email" className="input" placeholder="Email" />
+    if (!name || !email) {
+      toast.error("Please fill in all fields!");
+      return;
+    }
 
-            <button
-              onClick={handleBook}
-              className={`btn bg-[#F2994A] text-white mt-4 ${
-                isInstalled ? "opacity-70 pointer-events-none" : ""
-              }`}
-            >
-              {isInstalled ? "Booked" : "Book a Slot"}
-            </button>
-            <ToastContainer></ToastContainer>
-          </fieldset>
+    handleBook(); // only call if inputs are valid
+  }}
+>
+  <label className="label">Name</label>
+  <input required type="text" name="name" className="input" placeholder="Name" />
+
+  <label className="label">Email</label>
+  <input required type="email" name="email" className="input" placeholder="Email" />
+
+  <button
+    type="submit"
+    className={`btn bg-[#F2994A] text-white mt-4 ${
+      isInstalled ? "opacity-70 pointer-events-none" : ""
+    }`}
+  >
+    {isInstalled ? "Booked" : "Book a Slot"}
+  </button>
+  <ToastContainer />
+</form>
+
         </div>
       </div>
     </div>

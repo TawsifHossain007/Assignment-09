@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const PetServices = ({ data }) => {
   return (
-    <div className=" mt-30">
+    <div className=" mt-30 border-b-3 border-[#E0E0E0] pb-10">
       <h1 className="text-[48px] font-bold text-center">
         Love, Care & Comfort for Pets
       </h1>

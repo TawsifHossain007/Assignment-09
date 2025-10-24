@@ -8,7 +8,7 @@ const vets = [
     specialty: "Canine Health Specialist",
     experience: "10 Years Experience",
     icon: <Stethoscope className="text-orange-500 w-10 h-10" />,
-    img: "https://i.ibb.co/6YZ7cQz/vet1.jpg",
+    img: "https://i.ibb.co.com/NdKhvs9T/Brt-Doctor.webp",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const vets = [
     specialty: "Exotic Animal Care",
     experience: "8 Years Experience",
     icon: <HeartPulse className="text-orange-500 w-10 h-10" />,
-    img: "https://i.ibb.co/s3vmwvw/vet2.jpg",
+    img: "https://i.ibb.co.com/C3mNjBDT/doctor-hospital-1098-19685.jpg",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const vets = [
     specialty: "Feline Medicine & Surgery",
     experience: "12 Years Experience",
     icon: <Award className="text-orange-500 w-10 h-10" />,
-    img: "https://i.ibb.co/0C0mGQy/vet3.jpg",
+    img: "https://i.ibb.co.com/Zz7DWLFG/portrait-young-muslim-woman-doctor-standing-hall-hospital-dressed-hijab-1145931-46599.jpg",
   },
 ]
 

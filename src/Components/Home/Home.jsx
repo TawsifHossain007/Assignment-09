@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router";
 import PetServices from "../PetService/PetServices";
 import WinterCareTips from "../WinterCareTips/WinterCareTips";
+import Vets from "../Vets/Vets";
 
 const Home = () => {
     const data = useLoaderData();
@@ -18,6 +19,7 @@ const Home = () => {
         <Banner></Banner>
         <PetServices data={data}></PetServices>
         <WinterCareTips></WinterCareTips>
+        <Vets></Vets>
       </div>
     </motion.div>
   );
