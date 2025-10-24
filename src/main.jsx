@@ -14,6 +14,7 @@ import Register from "./Components/Register/Register.jsx";
 import ServiceDetails from "./Components/ServiceDetails/ServiceDetails.jsx";
 import AuthProvider from "./Components/AuthProvider/AuthProvider.jsx";
 import PrivateRoute from "./Components/AuthProvider/PrivateRoute.jsx";
+import Loading from "./Components/Loading/Loading.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,13 @@ const router = createBrowserRouter([
         path: "/",
         Component: Home,
         loader: () => fetch("/service.json"),
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: "/services",
         Component: Services,
         loader: () => fetch("/service.json"),
+         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: "/my-profile",

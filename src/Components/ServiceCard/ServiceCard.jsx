@@ -60,8 +60,8 @@ const ServiceCard = ({ service }) => {
               </p>
             </div>
           </div>
-          <div className="pt-15 flex items-center gap-6">
-            <h1  className="text-[#F2994A] font-semibold text-[20px] border-r-4 border-gray-300 pr-4">Email: <span className="text-black">{service.providerEmail}</span> </h1>
+          <div className="pt-15 flex flex-col md:flex-row items-center gap-6">
+            <h1  className="text-[#F2994A] font-semibold text-[20px] border-r-0 md:border-r-4 border-gray-300 pr-4">Email: <span className="text-black">{service.providerEmail}</span> </h1>
             <h1 className="text-[#F2994A] font-semibold text-[20px]">Category: <span className="text-black">{service.category}</span></h1>
           </div>
         </div>

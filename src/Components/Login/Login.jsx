@@ -1,77 +1,96 @@
-import React, { use, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
-  const [error,setError] = useState("")
-  const location = useLocation()
-  const navigate = useNavigate()
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value
+  const { signIn, handleGoogleSignIn } = useContext(AuthContext);
 
-        signIn(email,password)
-        .then(res => {
-            const user = res.user;
-            console.log(user)
-            navigate(`${location.state? location.state : "/"}`)
-            toast('Login Successful')
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-            form.reset();
-        }).catch(err => {
-            const errorCode = err.code
-            // const errorMessege = err.message
-            setError(errorCode)
+    signIn(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        toast.success("Login Successful");
 
-        });
+        navigate(location.state ? location.state : "/");
+        form.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.code);
+      });
+  };
 
-    }
-
-    const {signIn} = use(AuthContext)
+  const handleGoogle = () => {
+    handleGoogleSignIn()
+      .then(() => {
+        toast.success("Logged in with Google");
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.code);
+      });
+  };
 
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <h1 className="text-center font-semibold text-[20px]  pt-4">
-        Please Login
-      </h1>
+      <h1 className="text-center font-semibold text-[20px] pt-4">Please Login</h1>
       <form onSubmit={handleSubmit} className="card-body">
         <fieldset className="fieldset">
-          {/* email */}
+          {/* Email */}
           <label className="label">Email</label>
           <input
-          required
+            required
             name="email"
             type="email"
             className="input text-[#F2994A]"
             placeholder="Email"
           />
-          {/* password */}
+
+          {/* Password */}
           <label className="label">Password</label>
           <input
-          required
+            required
             name="password"
             type="password"
             className="input text-[#F2994A]"
             placeholder="Password"
           />
-          
+
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
-          {
-            error && <p className="text-red-600 font-medium">!!! {error}</p>
-          }
-          <button type="submit" className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4 ">
+
+          {error && <p className="text-red-600 font-medium">!!! {error}</p>}
+
+          <button
+            type="submit"
+            className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4"
+          >
             Login
           </button>
-          <ToastContainer></ToastContainer>
+
+          <ToastContainer />
+
           <p className="text-center font-medium text-[15px]">Or</p>
-          {/* Google */}
-          <button className="btn border border-blue-200 bg-white hover:bg-gray-200 text-black">
+
+          {/* Google Sign-In */}
+          <button
+            onClick={handleGoogle}
+            type="button"
+            className="btn border border-blue-200 bg-white hover:bg-gray-200 text-black"
+          >
             <svg
               aria-label="Google logo"
               width="16"
@@ -101,10 +120,10 @@ const Login = () => {
             </svg>
             Login with Google
           </button>
+
           <p className="text-[15px] text-center mt-2">
-            Dont have an account?{" "}
-            <Link to={"/auth/register"} className="text-[#F2994A]">
-              {" "}
+            Don’t have an account?
+            <Link to={"/auth/register"} className="text-[#F2994A] ml-1">
               Register
             </Link>
           </p>
