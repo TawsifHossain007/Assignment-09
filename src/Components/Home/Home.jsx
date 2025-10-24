@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router";
 import PetServices from "../PetService/PetServices";
+import WinterCareTips from "../WinterCareTips/WinterCareTips";
 
 const Home = () => {
     const data = useLoaderData();
@@ -16,6 +17,7 @@ const Home = () => {
       <div>
         <Banner></Banner>
         <PetServices data={data}></PetServices>
+        <WinterCareTips></WinterCareTips>
       </div>
     </motion.div>
   );
