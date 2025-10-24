@@ -5,6 +5,7 @@ import logo from '../../assets/Logo.jpg'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 
+
 const Navbar = () => {
 
   
@@ -53,8 +54,11 @@ const Navbar = () => {
       {links}
     </ul>
   </div>
-  <div className="navbar-end">
-    <CircleUserRound className='mr-0 md:mr-2' size={40}></CircleUserRound>
+  <div className="navbar-end flex items-center gap-1">
+    {
+      user? <img className='h-[40px] w-[40px] rounded-full' src={user.photoURL} alt="" /> : <CircleUserRound className='mr-0 md:mr-2' size={40}></CircleUserRound>
+    
+    }
     
     {
   user ? (

@@ -1,9 +1,12 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
+  const [error,setError] = useState("")
+  const location = useLocation()
+  const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -15,10 +18,15 @@ const Login = () => {
         .then(res => {
             const user = res.user;
             console.log(user)
+            navigate(`${location.state? location.state : "/"}`)
             toast('Login Successful')
+
             form.reset();
         }).catch(err => {
-            console.log(err)
+            const errorCode = err.code
+            // const errorMessege = err.message
+            setError(errorCode)
+
         });
 
     }
@@ -50,9 +58,13 @@ const Login = () => {
             className="input text-[#F2994A]"
             placeholder="Password"
           />
+          
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
+          {
+            error && <p className="text-red-600 font-medium">!!! {error}</p>
+          }
           <button type="submit" className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4 ">
             Login
           </button>
