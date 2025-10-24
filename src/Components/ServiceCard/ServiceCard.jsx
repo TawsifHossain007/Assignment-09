@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
           />
         </div>
 
-        <div className="flex-1 pt-15">
+        <div className="flex-1 pt-10">
           <div className="border-b border-gray-300 pb-2">
             <p className="font-bold text-2xl sm:text-3xl lg:text-4xl">
               {service.serviceName}
@@ -59,6 +59,10 @@ const ServiceCard = ({ service }) => {
                 {service.slotsAvailable}
               </p>
             </div>
+          </div>
+          <div className="pt-15 flex items-center gap-6">
+            <h1  className="text-[#F2994A] font-semibold text-[20px] border-r-4 border-gray-300 pr-4">Email: <span className="text-black">{service.providerEmail}</span> </h1>
+            <h1 className="text-[#F2994A] font-semibold text-[20px]">Category: <span className="text-black">{service.category}</span></h1>
           </div>
         </div>
       </div>
