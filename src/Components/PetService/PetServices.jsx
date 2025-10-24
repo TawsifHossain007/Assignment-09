@@ -1,6 +1,6 @@
 import React from "react";
 import PerCard from "../PetCard/PerCard";
-import { div } from "framer-motion/client";
+
 import { Link } from "react-router";
 
 const PetServices = ({ data }) => {

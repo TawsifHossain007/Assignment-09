@@ -78,7 +78,7 @@ const ServiceCard = ({ service }) => {
           <form
   className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
   onSubmit={(e) => {
-    e.preventDefault(); // prevent actual form submission
+    e.preventDefault(); 
     const form = e.target;
     const name = form.name.value.trim();
     const email = form.email.value.trim();
@@ -88,7 +88,7 @@ const ServiceCard = ({ service }) => {
       return;
     }
 
-    handleBook(); // only call if inputs are valid
+    handleBook(); 
   }}
 >
   <label className="label">Name</label>

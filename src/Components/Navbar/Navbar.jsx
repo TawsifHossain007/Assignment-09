@@ -1,7 +1,6 @@
 import { CircleUserRound } from "lucide-react";
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
-import logo from "../../assets/Logo.jpg";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -28,6 +27,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to={"/my-profile"}>My Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/community"}>Community</NavLink>
       </li>
     </>
   );
@@ -60,7 +62,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="flex items-center gap-2" to={"/"}>
-          <img className="h-[40px] w-[40px]" src={logo} alt="" />
+          <img className="h-[40px] w-[40px]" src="https://i.ibb.co.com/YBHwPscL/Logo.jpg" alt="" />
           <p className="font-medium text-[20px] hidden md:block">WarmPaws</p>
         </Link>
       </div>
