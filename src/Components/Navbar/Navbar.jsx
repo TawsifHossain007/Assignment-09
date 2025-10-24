@@ -1,10 +1,26 @@
 import { CircleUser, CircleUserRound } from 'lucide-react';
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../../assets/Logo.jpg'
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Navbar = () => {
 
+  
+
+  const {user,logout} = use(AuthContext)
+
+  const handleLogout = () => {
+    logout()
+    .then((res) => {
+      console.log(res)
+      toast('Logout Successful')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
     const links = <>
 
@@ -39,7 +55,22 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     <CircleUserRound className='mr-0 md:mr-2' size={40}></CircleUserRound>
-    <Link to={"/auth/login"} className="btn bg-[#F2994A] text-white">Login</Link>
+    
+    {
+  user ? (
+    <>
+      <ToastContainer />
+      <button onClick={handleLogout} className="btn bg-[#F2994A] text-white">
+        Logout
+      </button>
+    </>
+  ) : (
+    <Link to={"/auth/login"} className="btn bg-[#F2994A] text-white">
+      Login
+    </Link>
+  )
+}
+   
   </div>
 </div>
     );

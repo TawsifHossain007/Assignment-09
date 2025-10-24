@@ -1,17 +1,41 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value
+
+        signIn(email,password)
+        .then(res => {
+            const user = res.user;
+            console.log(user)
+            toast('Login Successful')
+            form.reset();
+        }).catch(err => {
+            console.log(err)
+        });
+
+    }
+
+    const {signIn} = use(AuthContext)
+
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <h1 className="text-center font-semibold text-[20px]  pt-4">
         Please Login
       </h1>
-      <div className="card-body">
+      <form onSubmit={handleSubmit} className="card-body">
         <fieldset className="fieldset">
           {/* email */}
           <label className="label">Email</label>
           <input
+          required
             name="email"
             type="email"
             className="input text-[#F2994A]"
@@ -20,6 +44,7 @@ const Login = () => {
           {/* password */}
           <label className="label">Password</label>
           <input
+          required
             name="password"
             type="password"
             className="input text-[#F2994A]"
@@ -31,6 +56,7 @@ const Login = () => {
           <button type="submit" className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4 ">
             Login
           </button>
+          <ToastContainer></ToastContainer>
           <p className="text-center font-medium text-[15px]">Or</p>
           {/* Google */}
           <button className="btn border border-blue-200 bg-white hover:bg-gray-200 text-black">
@@ -71,7 +97,7 @@ const Login = () => {
             </Link>
           </p>
         </fieldset>
-      </div>
+      </form>
     </div>
   );
 };
