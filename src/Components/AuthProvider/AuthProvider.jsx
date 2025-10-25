@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
   }
 
   sendPasswordResetEmail(auth, email)
-    .then(() => toast("Password reset email sent! Check your inbox."))
+    .then(() => toast("Password reset email sent ! Check your inbox."))
     .catch((err) => alert(err.message));
 };
 

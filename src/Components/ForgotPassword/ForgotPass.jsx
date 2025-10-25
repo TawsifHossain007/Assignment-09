@@ -23,6 +23,7 @@ const ForgotPass = () => {
     }
 
     handleForgetPassword(email);
+     window.open("https://mail.google.com/mail/u/0/?hl=en#inbox", "_blank");
   };
 
   return (
@@ -45,15 +46,14 @@ const ForgotPass = () => {
               placeholder="Enter your email"
             />
 
-            <Link to={""}>
             <button
               type="submit"
+              target="_blank"
               onClick={forgetPass}
               className="btn bg-[#F2994A] hover:bg-[#e68930] text-white w-full mt-4"
             >
               Reset Password
             </button>
-            </Link>
 
             
           </fieldset>

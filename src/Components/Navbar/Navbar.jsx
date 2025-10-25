@@ -97,9 +97,15 @@ const Navbar = () => {
             </button>
           </>
         ) : (
-          <Link to={"/auth/login"} className="btn bg-[#F2994A] text-white">
+          <div className="flex items-center gap-2">
+            <Link to={"/auth/login"} className="btn bg-[#F2994A] text-white">
             Login
           </Link>
+          <Link to={"/auth/register"} className="btn bg-[#F2994A] text-white">
+            Register
+          </Link>
+          </div>
+          
         )}
       </div>
     </div>

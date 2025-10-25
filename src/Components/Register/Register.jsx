@@ -2,11 +2,13 @@ import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
+import { Eye, EyeOff } from "lucide-react";
 
 const Register = () => {
   const { createUser, setUser, updateUser, handleGoogleSignIn } =
     use(AuthContext);
   const [error, setError] = useState("");
+   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (event) => {
@@ -48,6 +50,11 @@ const Register = () => {
       .catch((err) => {
         setError(err.code);
       });
+  };
+
+   const handleTogglePasswordShow = (event) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
   };
 
   const handleGoogle = () => {
@@ -94,13 +101,20 @@ const Register = () => {
             placeholder="Email"
           />
           <label className="label">Password</label>
-          <input
-            required
-            name="password"
-            type="password"
-            className="input text-black"
-            placeholder="Password"
-          />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    className="input"
+                    placeholder="Password"
+                  />
+                  <button
+                    onClick={handleTogglePasswordShow}
+                    className="btn btn-xs top-2 right-5 absolute"
+                  >
+                    {showPassword ? <Eye></Eye>: <EyeOff></EyeOff>}
+                  </button>
+                </div>
           <div>
             {error && <p className="text-red-600 font-medium">!!! {error}</p>}
           </div>
