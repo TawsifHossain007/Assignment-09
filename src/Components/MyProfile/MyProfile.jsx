@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 
 const MyProfile = () => {
   const {user,logout} = use(AuthContext)
-  console.log(user)
     return (
         <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
