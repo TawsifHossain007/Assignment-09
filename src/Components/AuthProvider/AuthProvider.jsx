@@ -5,12 +5,13 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
@@ -19,6 +20,18 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider()
+
+  const handleForgetPassword = (email) => {
+  if (!email) {
+    alert("Please enter your email address first.");
+    return;
+  }
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => toast("Password reset email sent! Check your inbox."))
+    .catch((err) => alert(err.message));
+};
+
 
    const handleGoogleSignIn = () => {
     setLoading(true);
@@ -66,7 +79,8 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     updateUser,
-    handleGoogleSignIn
+    handleGoogleSignIn,
+    handleForgetPassword
   };
 
   return <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>;

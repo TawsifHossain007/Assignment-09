@@ -105,7 +105,6 @@ const ServiceCard = ({ service }) => {
   >
     {isInstalled ? "Booked" : "Book a Slot"}
   </button>
-  <ToastContainer />
 </form>
 
         </div>

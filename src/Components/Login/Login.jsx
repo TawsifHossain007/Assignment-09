@@ -20,7 +20,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
-        toast.success("Login Successful");
+        toast("Login Successful");
 
         navigate(location.state ? location.state : "/");
         form.reset();
@@ -31,10 +31,21 @@ const Login = () => {
       });
   };
 
+    const handleForgotPassword = () => {
+    const emailInput = document.querySelector('input[name="email"]');
+    const email = emailInput?.value.trim();
+
+    if (!email) {
+      return;
+    }
+
+    navigate("/auth/forgot-password", { state: { email } });
+  };
+
   const handleGoogle = () => {
     handleGoogleSignIn()
       .then(() => {
-        toast.success("Logged in with Google");
+        toast("Logged in with Google");
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
@@ -44,8 +55,8 @@ const Login = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <h1 className="text-center font-semibold text-[20px] pt-4">Please Login</h1>
+    <div className="card bg-[#f6b076] w-full max-w-sm shrink-0 shadow-2xl">
+      <h1 className="text-center font-semibold text-[25px] text-white pt-4">Please Login</h1>
       <form onSubmit={handleSubmit} className="card-body">
         <fieldset className="fieldset">
           {/* Email */}
@@ -54,7 +65,7 @@ const Login = () => {
             required
             name="email"
             type="email"
-            className="input text-[#F2994A]"
+            className="input text-black"
             placeholder="Email"
           />
 
@@ -64,12 +75,12 @@ const Login = () => {
             required
             name="password"
             type="password"
-            className="input text-[#F2994A]"
+            className="input text-black"
             placeholder="Password"
           />
 
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <button onClick={handleForgotPassword} className="link link-hover">Forgot password?</button>
           </div>
 
           {error && <p className="text-red-600 font-medium">!!! {error}</p>}
@@ -80,9 +91,6 @@ const Login = () => {
           >
             Login
           </button>
-
-          <ToastContainer />
-
           <p className="text-center font-medium text-[15px]">Or</p>
 
           {/* Google Sign-In */}
@@ -121,9 +129,9 @@ const Login = () => {
             Login with Google
           </button>
 
-          <p className="text-[15px] text-center mt-2">
+          <p className="text-[15px] text-center mt-2 font-medium">
             Don’t have an account?
-            <Link to={"/auth/register"} className="text-[#F2994A] ml-1">
+            <Link to={"/auth/register"} className="text-white ml-1">
               Register
             </Link>
           </p>

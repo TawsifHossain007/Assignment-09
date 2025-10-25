@@ -17,7 +17,7 @@ const eventsData = [
 
 const Events = () => {
   return (
-    <section className="py-12 bg-amber-100">
+    <section className="py-12 bg-amber-100 mt-15">
       <h2 className="text-3xl font-bold text-center mb-8">
         Events & Promotions
       </h2>

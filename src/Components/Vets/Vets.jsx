@@ -1,5 +1,6 @@
 import React from 'react'
 import { Stethoscope, Award, HeartPulse } from 'lucide-react'
+import { div } from 'framer-motion/client'
 
 const vets = [
   {
@@ -30,7 +31,8 @@ const vets = [
 
 const Vets = () => {
   return (
-    <section className="bg-[#FFF9F4] py-16 px-6 md:px-12">
+    <div className='border-b-3 border-[#E0E0E0] pb-5'>
+        <section className="bg-[#FFF9F4] py-16 px-6 md:px-12">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-800 mb-2">Meet Our Expert Vets</h2>
         <p className="text-gray-600 max-w-xl mx-auto">
@@ -60,6 +62,8 @@ const Vets = () => {
         ))}
       </div>
     </section>
+    </div>
+    
   )
 }
 

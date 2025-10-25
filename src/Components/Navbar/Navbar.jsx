@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logout()
       .then(() => {
-        toast.success("Logout Successful");
+        toast("Logout Successful");
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +69,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex items-center gap-2">
-        {user ? (
+        {user && (
           <div className="relative flex flex-col items-center group">
             <img
               className="h-[40px] w-[40px] rounded-full cursor-pointer"
@@ -83,13 +83,12 @@ const Navbar = () => {
               {user.displayName}
             </span>
           </div>
-        ) : (
-          <CircleUserRound className="mr-0 md:mr-2" size={40} />
-        )}
+        ) 
+          
+        }
 
         {user ? (
           <>
-            <ToastContainer />
             <button
               onClick={handleLogout}
               className="btn bg-[#F2994A] text-white"

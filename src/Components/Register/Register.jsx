@@ -4,7 +4,8 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {
-  const { createUser, setUser, updateUser,handleGoogleSignIn } = use(AuthContext);
+  const { createUser, setUser, updateUser, handleGoogleSignIn } =
+    use(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -50,40 +51,75 @@ const Register = () => {
   };
 
   const handleGoogle = () => {
-      handleGoogleSignIn()
-        .then(() => {
-          toast.success("Logged in with Google");
-          navigate(location.state ? location.state : "/");
-        })
-        .catch((err) => {
-          console.log(err);
-          setError(err.code);
-        });
-    };
+    handleGoogleSignIn()
+      .then(() => {
+        toast.success("Logged in with Google");
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.code);
+      });
+  };
 
   return (
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <h1 className="text-center font-semibold text-[20px] pt-4">Please Register</h1>
+    <div className="card bg-[#f6b076] w-full max-w-sm shrink-0 shadow-2xl">
+      <h1 className="text-center font-semibold text-[25px] pt-4 text-white">
+        Please Register
+      </h1>
       <div className="card-body">
         <form onSubmit={handleRegister} className="fieldset">
           <label className="label">Name</label>
-          <input required name="name" type="text" className="input text-[#F2994A]" placeholder="Name" />
+          <input
+            required
+            name="name"
+            type="text"
+            className="input text-black"
+            placeholder="Name"
+          />
           <label className="label">Photo URL</label>
-          <input required name="PhotoURL" type="text" className="input text-[#F2994A]" placeholder="Photo URL" />
+          <input
+            required
+            name="PhotoURL"
+            type="text"
+            className="input text-black"
+            placeholder="Photo URL"
+          />
           <label className="label">Email</label>
-          <input required name="email" type="email" className="input text-[#F2994A]" placeholder="Email" />
+          <input
+            required
+            name="email"
+            type="email"
+            className="input text-black"
+            placeholder="Email"
+          />
           <label className="label">Password</label>
-          <input required name="password" type="password" className="input text-[#F2994A]" placeholder="Password" />
-          <div>{error && <p className="text-red-600 font-medium">!!! {error}</p>}</div>
-          <button type="submit" className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4">Register</button>
-          <ToastContainer />
-          <p className="text-[15px] text-center mt-2">
-            Already have an account? <Link to={"/auth/login"} className="text-[#F2994A]">Login</Link>
+          <input
+            required
+            name="password"
+            type="password"
+            className="input text-black"
+            placeholder="Password"
+          />
+          <div>
+            {error && <p className="text-red-600 font-medium">!!! {error}</p>}
+          </div>
+          <button
+            type="submit"
+            className="btn bg-[#F2994A] hover:bg-[#E47E25] text-white mt-4"
+          >
+            Register
+          </button>
+          <p className="text-[15px] text-center mt-2 font-medium">
+            Already have an account?{" "}
+            <Link to={"/auth/login"} className="text-white">
+              Login
+            </Link>
           </p>
 
-           <p className="text-center font-medium text-[15px]">Or</p>
+          <p className="text-center font-medium text-[15px]">Or</p>
 
-           {/* Google Sign-In */}
+          {/* Google Sign-In */}
           <button
             onClick={handleGoogle}
             type="button"

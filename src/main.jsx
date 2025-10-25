@@ -15,11 +15,16 @@ import ServiceDetails from "./Components/ServiceDetails/ServiceDetails.jsx";
 import AuthProvider from "./Components/AuthProvider/AuthProvider.jsx";
 import PrivateRoute from "./Components/AuthProvider/PrivateRoute.jsx";
 import Loading from "./Components/Loading/Loading.jsx";
+import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
+import ForgotPass from "./Components/ForgotPassword/ForgotPass.jsx";
+import { ToastContainer } from "react-toastify";
+import EditProfile from "./Components/EditProfile/EditProfile.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -52,6 +57,14 @@ const router = createBrowserRouter([
         path: "/auth/register",
         Component: Register,
       },
+      {
+        path: "/auth/forgot-password",
+        Component: ForgotPass
+      },
+      {
+        path:"/auth/edit-profile",
+        Component: EditProfile
+      }
     ],
   },
   {
@@ -66,7 +79,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />,
+      <RouterProvider router={router} />
+      <ToastContainer position="top-center" autoClose={3000} />
     </AuthProvider>
   </StrictMode>
 );

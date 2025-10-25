@@ -35,6 +35,10 @@ const MyProfile = () => {
       {user.emailVerified ? "Verified Account" : "Unverified"}
     </span>
   </div>
+      <div className="flex justify-center gap-4 mt-6">
+  <Link to={"/auth/edit-profile"} className="btn btn-outline btn-warning">Edit Profile</Link>
+  <button onClick={logout} className="btn btn-error text-white">Logout</button>
+</div>
 </div>
 </motion.div>
   ) : (
@@ -62,10 +66,7 @@ const MyProfile = () => {
     
   )
 }
-    <div className="flex justify-center gap-4 mt-6">
-  <button className="btn btn-outline btn-warning">Edit Profile</button>
-  <button onClick={logout} className="btn btn-error text-white">Logout</button>
-</div>
+
       </div>
       
     </motion.div>
